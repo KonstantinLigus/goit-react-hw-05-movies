@@ -1,1 +1,1 @@
-export const Cast = () => <h4>Cast</h4>;
+export const Cast = () => <h2>Cast</h2>;

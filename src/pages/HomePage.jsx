@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { fetchDailyMovies } from 'services/fetchMovies';
-import { MovieList } from 'components/MovieList';
+import { MoviesList } from 'components/MoviesList';
 
 export const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -11,8 +11,8 @@ export const HomePage = () => {
 
   return (
     <>
-      <h1>HomePage</h1>;
-      <MovieList movies={movies} />
+      <h1>HomePage</h1>
+      <MoviesList movies={movies} />
     </>
   );
 };

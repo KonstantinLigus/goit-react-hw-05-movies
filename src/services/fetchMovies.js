@@ -6,3 +6,15 @@ export const fetchDailyMovies = async () => {
   const resp = await axios.get(`/trending/all/day?api_key=${API_KEY}`);
   return resp.data;
 };
+
+export const fetchMoviesBySearch = async query => {
+  const resp = await axios.get(
+    `/search/movie?api_key=${API_KEY}&query=${query}`
+  );
+  return resp.data;
+};
+export const fetchMoviesById = async movieId => {
+  const movie = await axios.get(`/movie/${movieId}?api_key=${API_KEY}`);
+  return movie;
+};
+//

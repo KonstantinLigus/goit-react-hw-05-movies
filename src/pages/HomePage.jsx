@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { fetchDailyMovies } from 'services/fetchMovies';
 import { MoviesList } from 'components/MoviesList';
 
-export const HomePage = () => {
+const HomePage = () => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     fetchDailyMovies().then(data => setMovies(data.results));
@@ -16,3 +16,5 @@ export const HomePage = () => {
     </>
   );
 };
+
+export default HomePage;

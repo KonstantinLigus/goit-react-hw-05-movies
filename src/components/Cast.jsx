@@ -4,7 +4,7 @@ import { fetchCastOfMovieById } from 'services/fetchMovies';
 
 const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w200';
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
   useEffect(() => {
@@ -33,3 +33,5 @@ export const Cast = () => {
     </>
   );
 };
+
+export default Cast;

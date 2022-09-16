@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w300';
 
 export const MovieDetails = ({ movie }) => {
@@ -22,4 +24,15 @@ export const MovieDetails = ({ movie }) => {
       <p>{genres.map(genre => genre.name).join(', ')}</p>
     </>
   );
+};
+
+MovieDetails.propTypes = {
+  movie: PropTypes.shape({
+    poster_path: PropTypes.string,
+    original_title: PropTypes.string,
+    release_date: PropTypes.string,
+    vote_average: PropTypes.number,
+    overview: PropTypes.string,
+    genres: PropTypes.array,
+  }),
 };

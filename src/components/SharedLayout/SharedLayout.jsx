@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { LinkStyled, NavStyled } from './SharedLayoutStyled.styled';
 
 export const SharedLayout = () => {

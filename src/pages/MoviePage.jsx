@@ -1,5 +1,5 @@
 import { useState, Suspense } from 'react';
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovieById } from 'services/fetchMovies';
 import { MovieDetails } from 'components/MovieDetails/MovieDetails';
 import { useEffect } from 'react';

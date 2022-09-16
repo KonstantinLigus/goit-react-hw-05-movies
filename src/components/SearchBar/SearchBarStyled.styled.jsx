@@ -10,6 +10,6 @@ export const ButtonStyled = styled.button`
   width: 60px;
   height: 30px;
   margin-left: 20px;
-  background-color: aqua;
-  border-color: aqua;
+  background-color: orange;
+  border-color: orange;
 `;

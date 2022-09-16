@@ -3,6 +3,8 @@ import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovieById } from 'services/fetchMovies';
 import { MovieDetails } from 'components/MovieDetails/MovieDetails';
 import { useEffect } from 'react';
+import { BackLink } from 'components/BackLink.styled';
+import { CastPreviewsLink } from 'components/CastPreviewsLink.stykled';
 
 const MoviePage = () => {
   const { movieId } = useParams();
@@ -15,17 +17,21 @@ const MoviePage = () => {
 
   return (
     <>
-      <Link to={backToMoviesList}>Back to movies list</Link>
-      {movie && <MovieDetails movie={movie} />}
-      <Link to="cast" state={{ from: backToMoviesList }}>
-        Cast
-      </Link>
-      <Link to="reviews" state={{ from: backToMoviesList }}>
-        Previews
-      </Link>
-      <Suspense fallback={<p>Loading...</p>}>
-        <Outlet />
-      </Suspense>
+      <BackLink to={backToMoviesList}>
+        Back to {backToMoviesList.pathname === '/' ? 'Home' : 'Movies'}
+      </BackLink>
+      {movie ? (
+        <>
+          <MovieDetails movie={movie} backToMoviesList={backToMoviesList} />
+          <CastPreviewsLink to="cast">Cast</CastPreviewsLink>
+          <CastPreviewsLink to="reviews">Previews</CastPreviewsLink>
+          <Suspense fallback={<p>Loading...</p>}>
+            <Outlet />
+          </Suspense>
+        </>
+      ) : (
+        <p>movie isn't found</p>
+      )}
     </>
   );
 };

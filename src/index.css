@@ -44,3 +44,11 @@ ul {
   margin: 0;
   list-style: none;
 }
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
+}

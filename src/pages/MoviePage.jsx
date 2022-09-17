@@ -11,20 +11,23 @@ const MoviePage = () => {
   const [movie, setMovie] = useState(null);
   const location = useLocation();
   const backToMoviesList = location.state?.from ?? '/';
+  const backTo = backToMoviesList.pathname === '/' ? 'Home' : 'Movies';
   useEffect(() => {
     fetchMovieById(movieId).then(resp => setMovie(resp.data));
   }, [movieId]);
 
   return (
     <>
-      <BackLink to={backToMoviesList}>
-        Back to {backToMoviesList.pathname === '/' ? 'Home' : 'Movies'}
-      </BackLink>
+      <BackLink to={backToMoviesList}>Back to {backTo}</BackLink>
       {movie ? (
         <>
           <MovieDetails movie={movie} backToMoviesList={backToMoviesList} />
-          <CastPreviewsLink to="cast">Cast</CastPreviewsLink>
-          <CastPreviewsLink to="reviews">Previews</CastPreviewsLink>
+          <CastPreviewsLink to="cast" state={{ from: backToMoviesList }}>
+            Cast
+          </CastPreviewsLink>
+          <CastPreviewsLink to="reviews" state={{ from: backToMoviesList }}>
+            Previews
+          </CastPreviewsLink>
           <Suspense fallback={<p>Loading...</p>}>
             <Outlet />
           </Suspense>
